@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package echo;
+
+option go_package = "./echo";
+
+// Content is the payload used in ECHO services.
+message Content {
+  string text = 1;
+}
+
+// The echo service replies with the message it received.
+service EchoService {
+  rpc StreamEcho(stream Content) returns (stream Content) {}
+}
